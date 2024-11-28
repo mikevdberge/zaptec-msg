@@ -18,6 +18,9 @@ def mc_nbfx_decoder(msg: bytes) -> None:
 
     # https://learn.microsoft.com/en-us/openspecs/windows_protocols/mc-nbfx
 
+    print('Inside decoder')
+    print(msg)
+
     def data_producer(data: bytes):
         """Generator of data."""
         count = 0
@@ -84,7 +87,9 @@ def mc_nbfx_decoder(msg: bytes) -> None:
                 elif record_type in (CHARS8TEXT, CHARS16TEXT):
                     element["text"] = text
                 elif record_type == END_ELEMENT:
+                    print('END_ELEMENT')                    
                     break
+
                 else:
                     raise AttributeError(f"Unknown record type {hex(record_type)}")
         else:
