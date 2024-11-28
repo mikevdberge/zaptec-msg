@@ -25,6 +25,8 @@ class handler(BaseHTTPRequestHandler):
         out = mc_nbfx_decoder(data)
         logger.info('Started' + out)
         #self.wfile.write(out.encode('utf-8'))
+        print('Inside handler')
+        print(out)
         self.wfile.write(out)
 
         return
