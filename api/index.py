@@ -3,6 +3,13 @@ import logging
 from .misc import mc_nbfx_decoder, to_under
 logger = logging.getLogger(__name__)
 
+log_level = 'INFO'
+#logger = logging.getLogger()
+logger.setLevel(log_level)
+
+console_handler = logging.StreamHandler()
+console_handler.setLevel(log_level)
+logger.addHandler(console_handler)
 
 class handler(BaseHTTPRequestHandler):
  
